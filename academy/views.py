@@ -108,7 +108,8 @@ def sign_in_access(request):
 			else:
 				return redirect('/user_dashboard/')
 		else:
-			return HttpResponse("Not a Valid User")
+			messages.error(request, 'Username or Password Incorrect')
+			return redirect('/sign_in/')
 	return HttpResponse("Access Function Called...")
 
 def user_dashboard(request):
