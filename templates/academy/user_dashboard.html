@@ -1,0 +1,41 @@
+{% extends 'basics/basic.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% include 'basics/navbar.html' %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h3>Welcome : {{request.user.first_name}} {{request.user.last_name}}</h3>
+      </div>
+    </div><!-- End Breadcrumbs -->
+    <div class="container text-center mt-4">
+        {% include 'basics/messages.html' %}
+    </div>
+
+    <div class="container">
+      <a href="{% url 'course_apply' %}" class="btn btn-success">Application Form</a>
+      <a href="{% url 'view_courses' %}" class="btn btn-success">Previously Apply</a>
+    </div>
+    </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+</div>
+<br><br><br><br><br>
+
+  {% include 'basics/footer.html' %}
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  {% include 'basics/javascript.html' %}
+
+  {% endblock %}

@@ -1,0 +1,31 @@
+<!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="index.html">PCCA Shabqadar</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="active" href="{% url 'index_page' %}">Home</a></li>
+          <li><a href="{% url 'courses' %}">Courses</a></li>
+          <li><a href="{% url 'teacher' %}">Teachers</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      {% if user.is_authenticated %}
+
+        <a href="{% url 'logout_user' %}" class="get-started-btn">Logout</a>
+
+      {% else %}
+
+        <a href="{% url 'register' %}" class="get-started-btn">Apply Online</a>
+
+      {% endif %}
+
+
+    </div>
+  </header><!-- End Header -->

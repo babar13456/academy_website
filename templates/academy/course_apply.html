@@ -1,0 +1,140 @@
+{% extends 'basics/basic.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% include 'basics/navbar.html' %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h3>Apply For Course</h3>
+      </div>
+    </div><!-- End Breadcrumbs -->
+    <div class="container text-center mt-4">
+        {% include 'basics/messages.html' %}
+    </div>
+
+    <div class="container">
+      <a href="{% url 'user_dashboard' %}" class="btn btn-success">Back</a>
+    </div>
+
+    <div class="container pl-5 pr-5 pb-3 pt-2">
+      <h2>Please Fill the Form Below to apply for a Course</h2>
+      <hr>
+    </div>
+
+    <div class="container" style="width: 70%; background-color: l; padding: 20px;">
+
+          <div class="container">
+
+            <form action="" method="post" role="form" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-sm-6 mt-2">
+                  {{ form.father_name | as_crispy_field }}
+                </div>
+                <div class="col-sm-6 mt-2">
+                  {{ form.birth_date | as_crispy_field }}
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-sm-6 mt-2">
+                  {{ form.select_gender | as_crispy_field }}
+                </div>
+                <div class="col-sm-6 mt-2">
+                  {{ form.select_domicile | as_crispy_field }}
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-sm-6 mt-2">
+                  {{ form.mobile_no | as_crispy_field }}
+                </div>
+                <div class="col-sm-6 mt-2">
+                  {{ form.cnic | as_crispy_field }}
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-sm-6 mt-2">
+                  {{ form.guardian_no | as_crispy_field }}
+                </div>
+                <div class="col-sm-6 mt-2">
+                  {{ form.select_qualification | as_crispy_field }}
+                </div>
+              </div>
+              <hr>
+              <h5 style="color: red;">Please Select Course For Apply</h5>
+              <hr>
+              <div class="row mt-2">
+                <div class="col-sm-12 mt-2">
+                  {{ form.select_course | as_crispy_field }}
+                </div>
+              </div>
+              <hr>
+              <h5 style="color: red;">Please upload image profile</h5>
+              <hr>
+              <div class="row mt-2">
+                <div class="col-sm-12 mt-2">
+                  {{ form.select_img | as_crispy_field }}
+                </div>
+              </div>
+              <hr>
+              <h5 style="color: red;">Please upload one of document MATRIC or FSC DMC</h5>
+              <hr>
+              <div class="row mt-2">
+                <div class="col-sm-6 mt-2">
+                  {{ form.fsc_dmc | as_crispy_field }}
+                </div>
+                <div class="col-sm-6 mt-2">
+                  {{ form.matric_dmc | as_crispy_field }}
+                </div>
+              </div>
+              <hr>
+              <h5 style="color: red;">Please upload the CNIC Back and Front Image</h5>
+              <hr>
+              <div class="row mt-2">
+                <div class="col-sm-6 mt-2">
+                  {{ form.cnic_front | as_crispy_field }}
+                </div>
+                <div class="col-sm-6 mt-2">
+                  {{ form.cnic_back | as_crispy_field }}
+                </div>
+              </div>
+              <hr>
+              <h5 style="color: red;">Enter full address same in your CNIC</h5>
+              <hr>
+              <div class="row mt-2">
+                <div class="col-sm-12 mt-2">
+                  {{ form.Address | as_crispy_field }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 mt-3">
+                  <input type="submit" name="" class="btn btn-success btn-block" value="Submit / Apply">
+                </div>
+              </div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+</div>
+
+  {% include 'basics/footer.html' %}
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  {% include 'basics/javascript.html' %}
+
+  {% endblock %}

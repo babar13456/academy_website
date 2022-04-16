@@ -1,0 +1,67 @@
+{% extends 'basics/basic.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% include 'basics/navbar.html' %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>Course Details</h2>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Cource Details Section ======= -->
+    <section id="course-details" class="course-details">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-8">
+            <img src="/media/{{get_id.select_img}}" class="img-fluid" alt="">
+            <h3>{{get_id.course_name}}, ( {{ get_id.select_category }} )</h3>
+            <p>
+              {{get_id.course_desc}}
+            </p>
+          </div>
+          <div class="col-lg-4">
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Trainer</h5>
+              <p><a href="#">{{get_id.select_teacher.teacher_name}}</a></p>
+            </div>
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Course Fee</h5>
+              <p>RS : {{get_id.price}}</p>
+            </div>
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Available Seats</h5>
+              <p>{{get_id.seats}}</p>
+            </div>
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Period Time</h5>
+              <p>{{get_id.start}} - {{get_id.end}}</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cource Details Section -->
+
+  </main><!-- End #main -->
+
+  {% include 'basics/footer.html' %}
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  {% include 'basics/javascript.html' %}
+
+  {% endblock %}

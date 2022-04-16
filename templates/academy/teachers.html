@@ -1,0 +1,66 @@
+{% extends 'basics/basic.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% include 'basics/navbar.html' %}
+
+  <main id="main" data-aos="fade-in">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="container">
+        <h2>Our Teachers</h2>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Trainers Section ======= -->
+    <section id="trainers" class="trainers">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+          
+          {% for i in all_teachers %}
+          
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="/media/{{i.select_img}}" class="img-fluid" alt="">
+              <div class="member-content">
+                <h4>{{i.teacher_name}}</h4>
+                <span>{{i.teacher_skill}}</span>
+                <p>
+                  {{i.teacher_desc}}
+                </p>
+                <div class="social">
+                  {% if i.twitter %}
+                    <a href="{{i.twitter}}" target="__blank"><i class="bi bi-twitter"></i></a>
+                  {% endif %}
+                  {% if i.facebook %}
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                  {% endif %}
+                  {% if i.instagram %}
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {% endfor %}
+
+        </div>
+
+      </div>
+    </section><!-- End Trainers Section -->
+
+  </main><!-- End #main -->
+
+  {% include 'basics/footer.html' %}
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  {% include 'basics/javascript.html' %}
+
+  {% endblock %}

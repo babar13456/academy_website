@@ -1,0 +1,1 @@
+web: gunicorn academy_website.wsgi

@@ -1,0 +1,68 @@
+{% extends 'basics/basic.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% include 'basics/navbar.html' %}
+
+  <main id="main" data-aos="fade-in">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="container">
+        <h2>Courses We Provided</h2>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Courses Section ======= -->
+    <section id="courses" class="courses">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+
+          {% for i in all_courses %}
+
+          <div class="col-lg-4 col-md-6 mt-3 d-flex align-items-stretch">
+            <div class="course-item">
+              <img src="/media/{{i.select_img}}" class="img-fluid" alt="...">
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4>{{i.select_category}}</h4>
+                  <p class="price">RS : {{i.price}}</p>
+                </div>
+
+                <h3><a href="{% url 'single_course' i.id %}">{{i.course_name}}</a></h3>
+                <p>
+                  {{i.snippet}}
+                </p>
+                <div class="trainer d-flex justify-content-between align-items-center">
+                  <div class="trainer-profile d-flex align-items-center">
+                    <img src="/media/{{i.select_teacher.select_img}}" class="img-fluid" alt="">
+                    <span>{{i.select_teacher.teacher_name}}</span>
+                  </div>
+                  <div class="trainer-rank d-flex align-items-center">
+                    <a href="{% url 'single_course' i.id %}" class="btn btn-primary btn-sm">More Info...</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+
+
+          {% endfor %}
+
+        </div><br>
+      </div>
+    </section><!-- End Courses Section -->
+
+  </main><!-- End #main -->
+
+  {% include 'basics/footer.html' %}
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  {% include 'basics/javascript.html' %}
+
+  {% endblock %}
